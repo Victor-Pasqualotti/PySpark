@@ -1,0 +1,24 @@
+{
+    "name":"simples-aws-framework",
+    "paths":{
+        "app":{
+            "controle-execucao":{
+                "origens"   : "simples-aws-framework/app/controle-execucao/origens/",
+                "projetos"  : "simples-aws-framework/app/controle-execucao/projetos/",
+                "app-log"   : "simples-aws-framework/app/controle-execucao/app-log/"
+            },
+            "framework"     : "simples-aws-framework/app/framework/",
+            "configuracao"  : "simples-aws-framework/app/configuracao/"
+        },
+        "projetos":{
+            "configuracao"  : "simples-aws-framework/projetos/configuracao/",
+            "sql"           : "simples-aws-framework/projetos/sql/"
+        },
+        "output"            : {
+            "dev"           : "db_workspace/",
+            "prod"          : "db_compartilhado/"
+        }
+        
+
+    }
+}

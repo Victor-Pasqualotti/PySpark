@@ -38,7 +38,7 @@ class Predicado:
     def resgata_coluna_ignorar(self, df):
         """
         Para o exemplo abaixo, 
-        consigura um paramentro como o nome da coluna:
+        configura um paramentro como o nome da coluna:
         "partition"
         +--------------------+
         |           partition|
@@ -58,7 +58,7 @@ class Predicado:
         as partições em colunas.
         Retorna um DataFrame como:
         +--------------------+----+---+---+
-        |              geleia| ano|mes|dia|
+        |           partition| ano|mes|dia|
         +--------------------+----+---+---+
         |ano=2024/mes=6/di...|2024|  6| 10|
         |ano=2024/mes=6/dia=9|2024|  6|  9|
@@ -89,7 +89,8 @@ class Predicado:
         """
         Performa um SQL sobre o dataframe contendo
         os dados sobre as partições disponíveis.
-        Ex: 
+        Ex (partições = anomesdia=yyyyMMdd/categoria='U|D'): 
+        
         Maximo valor anomesdia
         "anomesdia = (select max(cast(anomesdia as int)) from partitions where categoria = 'D')"
         Três ultimas particoes
@@ -120,7 +121,7 @@ class Predicado:
         'anomesdia': ['20240610', '20240609','20240608'],
         'categoria': ['U', 'D', 'U']
         }
-        
+
         Retorna a expressão de predicado como:
         '( anomesdia = 20240610 and  categoria = U) or ( anomesdia = 20240609 and  categoria = D) or ( anomesdia = 20240608 and  categoria = U)'
         """

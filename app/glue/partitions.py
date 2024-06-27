@@ -89,7 +89,16 @@ class Predicado:
         """
         Performa um SQL sobre o dataframe contendo
         os dados sobre as partições disponíveis.
-        Ex (partições = anomesdia=yyyyMMdd/categoria='U|D'): 
+        Ex (partições = anomesdia=yyyyMMdd/categoria='U|D'):
+        +--------------------+---------+---------+
+        |           partition|anomesdia|categoria|
+        +--------------------+---------+---------+
+        |anomesdia=2024061...| 20240610|        U|
+        |anomesdia=2024060...| 20240609|        D|
+        |anomesdia=2024060...| 20240608|        U|
+        |anomesdia=2024060...| 20240607|        U|
+        |anomesdia=2024060...| 20240606|        U|
+        +--------------------+---------+---------+ 
         
         Maximo valor anomesdia
         "anomesdia = (select max(cast(anomesdia as int)) from partitions where categoria = 'D')"
